@@ -50,7 +50,7 @@ export default function Main({ isUserSigned, signout }){
             </div>
           </div>
           <div className="lg:max-w-lg lg:w-full md:w-1/2 w-5/6">
-            <img className="object-cover object-center rounded" alt="hero" src="https://source.unsplash.com/random/720x600/?health,mental" />
+            <img className="object-cover object-center rounded" alt="hero" src="https://images.unsplash.com/photo-1564682895970-0dbb72e18d97?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bWVudGFsJTIwaGVhbHRofGVufDB8fDB8fHww" />
           </div>
         </div>
       </section>
@@ -75,7 +75,7 @@ export default function Main({ isUserSigned, signout }){
               <div className="flex-grow">
                 <h2 className="text-gray-900 text-lg title-font font-medium mb-3">Cognion Blog</h2>
                 <p className="leading-relaxed text-base">Across the world, people use blogs as a platform to share experiences, increase awareness and understanding, and provide comfort and support.</p>
-                <a className="mt-3 text-indigo-500 inline-flex items-center" href="http://127.0.0.1:5501/cognion.html" target="_blank"> Blogs
+                <a className="mt-3 text-indigo-500 inline-flex items-center" href="https://noraizamaan.github.io/blog/" target="_blank"> Blogs
                   <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" className="w-4 h-4 ml-2" viewBox="0 0 24 24">
                     <path d="M5 12h14M12 5l7 7-7 7"></path>
                   </svg>
@@ -110,7 +110,7 @@ export default function Main({ isUserSigned, signout }){
               <div className="flex-grow">
                 <h2 className="text-gray-900 text-lg title-font font-medium mb-3">Doctor Consultation</h2>
                 <p className="leading-relaxed text-base" >Apply for a counselling session absolutely free for the first time & Consult to highly qualified psychiatrist and doctors through our website.</p>
-                <a className="mt-3 text-indigo-500 inline-flex items-center" href="http://localhost:3000/?#home" target="_blank">Doctor Consultation
+                <a className="mt-3 text-indigo-500 inline-flex items-center" href="https://hospital-website-beta.vercel.app/" target="_blank">Doctor Consultation
                   <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" className="w-4 h-4 ml-2" viewBox="0 0 24 24">
                     <path d="M5 12h14M12 5l7 7-7 7"></path>
                   </svg>
