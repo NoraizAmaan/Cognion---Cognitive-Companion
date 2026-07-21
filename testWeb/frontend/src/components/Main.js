@@ -348,4 +348,3 @@ export default function Main({ isUserSigned, signout }) {
     </div>
   )
 }
->>>>>>> 895c7f1 (Fix Contact Us email handling and form layout alignment)
