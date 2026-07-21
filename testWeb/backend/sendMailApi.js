@@ -11,9 +11,7 @@ app.get("/", (req, res) => {
 });
 
 app.post("/mail", function (req, res) {
-  res.send("Mail sended");
-
-  console.log(req.body);
+  console.log("Received contact form submission:", req.body);
 
   const transporter = nodemailer.createTransport({
     service: "gmail",
@@ -24,17 +22,20 @@ app.post("/mail", function (req, res) {
   });
 
   const mailOptions = {
-    from: `${process.env.USER}`,
-    to: `${process.env.USER}`,
-    subject: `${req.body.name}`,
-    html: `<br> <strong>Name: ${req.body.name}</strong> <br> <strong>Email: ${req.body.email}</strong> <br> <strong>Message: ${req.body.message}</strong> <br> <hr>`,
+    from: `"${req.body.name}" <${process.env.USER}>`,
+    to: process.env.USER,
+    replyTo: req.body.email,
+    subject: `Contact Us Message from ${req.body.name}`,
+    html: `<br> <strong>Name:</strong> ${req.body.name} <br> <strong>Email:</strong> ${req.body.email} <br> <strong>Message:</strong> ${req.body.message} <br> <hr>`,
   };
 
   transporter.sendMail(mailOptions, function (error, info) {
     if (error) {
-      console.log(error);
+      console.error("Nodemailer Email Error:", error);
+      res.status(500).json({ success: false, message: "Failed to send email", error: error.message });
     } else {
-      console.log("Email sent: " + info.response);
+      console.log("Email sent successfully: " + info.response);
+      res.status(200).json({ success: true, message: "Mail sent successfully!" });
     }
   });
 });

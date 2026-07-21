@@ -2,41 +2,41 @@ import React from "react";
 import { signInWithGoogle } from "./Firebase";
 
 
-export default function Main({ isUserSigned, signout }){
-    function sendMail(event){
-      event.preventDefault();
+export default function Main({ isUserSigned, signout }) {
+  function sendMail(event) {
+    event.preventDefault();
 
-      if (!isUserSigned) alert("Please sign in first to contact us")
-      else{
-          const name = document.getElementById("name");
-          const message = document.getElementById("message");
-          const email = document.getElementById("email");
-          const userData = {
-            name: name.value,
-            email: email.value,
-            message: message.value,
-          }
-          console.log("User Data : ", userData);
-          fetch("/mail", {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify(userData),
-          });
-    
-          name.value = "";
-          message.value = "";
-          email.value = "";
-    
-          console.log("Mail Sended Successfully!");
+    if (!isUserSigned) alert("Please sign in first to contact us")
+    else {
+      const name = document.getElementById("name");
+      const message = document.getElementById("message");
+      const email = document.getElementById("email");
+      const userData = {
+        name: name.value,
+        email: email.value,
+        message: message.value,
       }
-    }
-    
+      console.log("User Data : ", userData);
+      fetch("/mail", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(userData),
+      });
 
-    return (
-        <div>
-            <section className="text-gray-600 body-font">
+      name.value = "";
+      message.value = "";
+      email.value = "";
+
+      console.log("Mail Sended Successfully!");
+    }
+  }
+
+
+  return (
+    <div>
+      <section className="text-gray-600 body-font">
         <div id="Home" className="container mx-auto flex px-5 py-24 md:flex-row flex-col items-center">
           <div className="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
             <h1 className="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900">Lets Get Ready to be Mentally FIT
@@ -46,7 +46,7 @@ export default function Main({ isUserSigned, signout }){
             <p className="mb-8 leading-relaxed">Mental and physical health are equally important components of overall health.So let's make ourselves FIT mentally through Cognion.</p>
 
             <div className="flex justify-center">
-              <button onClick={signInWithGoogle} style={(isUserSigned)? {display: "none"} : {display: "inline-block"}} className="inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">Sign In</button>
+              <button onClick={signInWithGoogle} style={(isUserSigned) ? { display: "none" } : { display: "inline-block" }} className="inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">Sign In</button>
             </div>
           </div>
           <div className="lg:max-w-lg lg:w-full md:w-1/2 w-5/6">
@@ -55,7 +55,7 @@ export default function Main({ isUserSigned, signout }){
         </div>
       </section>
       <hr />
-      
+
       <section className="text-gray-600 body-font">
         <div id="Services" className="container px-5 py-24 mx-auto">
           <div className="text-center mb-20">
@@ -289,22 +289,22 @@ export default function Main({ isUserSigned, signout }){
           </div>
           <div className="lg:w-1/2 md:w-2/3 mx-auto">
             <div className="flex flex-wrap -m-2">
-              <form action='#' className='w-full' onSubmit={sendMail}>
+              <form action='#' className='w-full flex flex-wrap -m-2' onSubmit={sendMail}>
                 <div className="p-2 w-1/2">
                   <div className="relative">
-                    <label for="name" className="leading-7 text-sm text-gray-600">Name</label>
+                    <label for="name" className="leading-7 text-sm text-gray-600 block mb-1">Name</label>
                     <input type="text" id="name" name="name" className="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
                   </div>
                 </div>
                 <div className="p-2 w-1/2">
                   <div className="relative">
-                    <label for="email" className="leading-7 text-sm text-gray-600">Email</label>
+                    <label for="email" className="leading-7 text-sm text-gray-600 block mb-1">Email</label>
                     <input type="email" id="email" name="email" className="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
                   </div>
                 </div>
                 <div className="p-2 w-full">
                   <div className="relative">
-                    <label for="message" className="leading-7 text-sm text-gray-600">Message</label>
+                    <label for="message" className="leading-7 text-sm text-gray-600 block mb-1">Message</label>
                     <textarea id="message" name="message" className="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"></textarea>
                   </div>
                 </div>
@@ -345,6 +345,7 @@ export default function Main({ isUserSigned, signout }){
           </div>
         </div>
       </section>
-        </div>
-    )
+    </div>
+  )
 }
+>>>>>>> 895c7f1 (Fix Contact Us email handling and form layout alignment)
